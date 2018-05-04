@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Great Number Game</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+	<div id="wrapper">
+		<h2>Welcome to the Great Number Game!</h2>
+		<h4>I am thinking of a number between 1 and 100</h4>
+		<h4>Take a guess!</h4>
+		<div class='{{retVal}}'>{{ retText }}
+		{% if retVal == 'winner' %}
+			<br><a href="/reset"> Play again</a>
+		{% endif %}
+		</div>
+		<form action="/guess" method="post">
+			<input type="text" name="guess">
+			<input type="submit" val="Make Guess">
+		</form>
+		
+		<p>{{answer}}</p>
+	</div>
+</body>
+</html>
